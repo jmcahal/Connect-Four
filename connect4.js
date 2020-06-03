@@ -36,9 +36,19 @@ const htmlBoard = document.querySelector("#board")
   // add an event listener for when the top of a column is clicked it will drop the item to the next available cell in relation to the bottom.
   top.addEventListener("click", handleClick);
   // loop over the columns giving the top cell an id of 0-6 left to right
+
   for (let x = 0; x < WIDTH; x++) {
     //create a data container for each top cell
     let headCell = document.createElement("td");
+    headCell.addEventListener("mouseover", function(){
+      if (currPlayer===1){
+        this.style.backgroundColor = "blue"
+      }
+      else {this.style.backgroundColor = "red"}
+    })
+    headCell.addEventListener("mouseleave", function(){
+      this.style.backgroundColor = "white"
+    })
     headCell.setAttribute("id", x);
     top.append(headCell);
   }
@@ -76,6 +86,12 @@ function findSpotForCol(x) {
 function placeInTable(y, x) {
   // TODO: make a div and insert into correct table cell
   const gamePiece = document.createElement("div");
+  if (y === 5) {gamePiece.classList.add("fall1")}
+  if (y === 4) {gamePiece.classList.add("fall2")}
+  if (y === 3) {gamePiece.classList.add("fall3")}
+  if (y === 2) {gamePiece.classList.add("fall4")}
+  if (y === 1) {gamePiece.classList.add("fall5")}
+  if (y === 0) {gamePiece.classList.add("fall6")}
   if (currPlayer === 1){
     gamePiece.classList.add("piece","p1")
   }
