@@ -196,9 +196,10 @@ function checkForWin() {
 
 //function for when the start button is clicked
 const startGame =() =>{
-  startButton.remove();
   makeBoard();
   makeHtmlBoard();
+  startButton.remove();
+ 
 }
 
 //create startButton
@@ -234,11 +235,6 @@ const closePopUp = function(){
   htmlBoard.innerHTML = '';
   playerTurn.innerText = "";
   board = [];
-  const startButton = document.createElement("button");
-  startButton.addEventListener("click",startGame);
-    startButton.type = "Button";
-    startButton.setAttribute("id", "start")
-  startButton.innerText= "Start Game!";
   document.body.append(startButton);
 };
 
