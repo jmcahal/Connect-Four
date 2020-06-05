@@ -224,6 +224,7 @@ playAgain.addEventListener("click",function(){
   popUp.style.display = "none";
   currPlayer = 1
   playerTurn.innerText = `Player ${currPlayer}`;
+  startButton.remove();
   makeBoard();
   makeHtmlBoard();
 });
